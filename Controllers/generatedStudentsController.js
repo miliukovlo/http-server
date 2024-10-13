@@ -12,7 +12,7 @@ class allStudents {
             res.status(500).json({error: 'Fail get students for users by server'})
         }
     }
-    async getAllStudents(req,res) {
+    async getLimitStudents(req,res) {
         try {
             const {limit} = req.body
             const students = this.students.slice(0,limit)

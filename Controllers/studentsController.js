@@ -16,7 +16,6 @@ class Students {
     async updateStudent(req, res) {
         try {
             const { id } = req.params;
-            const { isHere } = req.body; 
 
             const student = this.students.find(student => student.id === id); 
 
@@ -24,7 +23,7 @@ class Students {
                 return res.status(404).json({ error: "Student not found" });
             }
 
-            student.isHere = isHere;
+            student.isHere = !student.isHere;
             res.status(200).json(student); 
         } catch (e) {
             res.status(500).json({ error: "Fail update students for dashboard by server" });
