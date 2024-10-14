@@ -1,4 +1,4 @@
-export const generatedStudents = [
+const generatedStudents = [
     {
         _id: "6703e7701fdd05828baf1494",
         index: 0,
@@ -2898,3 +2898,5 @@ export const generatedStudents = [
         group: "ИИПб-23-1"
     }
 ]
+
+module.exports = generatedStudents

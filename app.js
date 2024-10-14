@@ -15,5 +15,5 @@ app.use('/api', dashboardStudents)
 app.use('/api', allStudents)
 
 app.listen(PORT, () => {
-    console.log('Server started successful ')
+    console.log(`Server started successful on ${PORT} port`)
 })

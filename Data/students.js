@@ -1,4 +1,4 @@
-export const initialStudents = [
+const initialStudents = [
     { id: 1, group: "A1", fio: "Иванов Иван Иванович", isHere: false },
     { id: 2, group: "A1", fio: "Петров Петр Петрович", isHere: false },
     { id: 3, group: "A1", fio: "Сидоров Сидор Сидорович", isHere: false },
@@ -21,3 +21,5 @@ export const initialStudents = [
     { id: 20, group: "D1", fio: "Павлов Сергей Сергеевич", isHere: false },
     { id: 21, group: "D1", fio: "Семенов Алексей Алексеевич", isHere: false }
 ];
+
+module.exports = initialStudents

@@ -1,4 +1,4 @@
-import { generatedStudents } from './../Data/generatedStudents';
+const generatedStudents = require('../Data/generatedStudents')
 
 class allStudents {
     constructor() {
