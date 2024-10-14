@@ -14,7 +14,7 @@ class Students {
     async updateStudent(req, res) {
         try {
             const { id } = req.params;
-            const studentId = parseInt(id, 10); // Преобразуем строку в число
+            const studentId = parseInt(id, 10);
             console.log(studentId);
     
             const studentIndex = initialStudents.findIndex(student => student.id === studentId);
@@ -22,8 +22,6 @@ class Students {
             if (studentIndex === -1) {
                 return res.status(404).json({ error: "Student not found" });
             }
-    
-            // Обновляем статус присутствия студента
             initialStudents[studentIndex].isHere = !initialStudents[studentIndex].isHere;
             res.status(200).json(initialStudents[studentIndex]);
         } catch (e) {
