@@ -4,7 +4,7 @@ class allStudents {
     async getAllStudents(req,res) {
         try {
             const students = generatedStudents
-            res.status(200).json({students: students})
+            res.status(200).json(students)
         } catch (e) {
             res.status(500).json({error: 'Fail get students for users by server'})
         }
@@ -14,10 +14,10 @@ class allStudents {
             const {limit} = req.params
             if (generatedStudents.length < limit) {
                 const students = generatedStudents
-                res.status(200).json({students: students})
+                res.status(200).json(students)
             }
             const students = generatedStudents.slice(0,limit)
-            res.status(200).json({students: students})
+            res.status(200).json(students)
         } catch (e) {
             res.status(500).json({error: 'Fail get students for users by server'})
         }

@@ -4,7 +4,7 @@ class Students {
     async getStudents(req, res) {
         try {
             const students = initialStudents;
-            res.status(200).json({ students: students });
+            res.status(200).json(students);
         } catch (e) {
             console.error(e);
             res.status(500).json({ error: "Failed to get students for dashboard by server" });

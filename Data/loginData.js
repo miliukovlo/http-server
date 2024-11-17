@@ -1,18 +1,17 @@
 const loginData = [
     {
-        id: "teacherrrr",
+        email: "teacher@mail.ru",
+        password: "password",
         role: "teacher",
         fio: "Иванов Иван Иванович",
-        email: "teacher@mail.ru",
-        password: "password"
+        groups: ["ИИПб-24-1", "ИИПб-23-1", "РППб-24-1", "СМАРТб-24-1"]
     },
     {
-        id: "adminnn",
-        role: "admin",
-        fio: "Иванов Иван Иванович",
         email: "admin@mail.ru",
-        password: "password"
-    }
+        password: "password",
+        role: "admin",
+        fio: "Иванов Иван Иванович"
+    },
 ]
 
 module.exports = loginData
