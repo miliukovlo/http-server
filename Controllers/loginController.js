@@ -1,19 +1,30 @@
-const loginData = require('../Data/loginData')
+const loginData = require('../Data/loginData');
 
-class loginController {
-    async getAccount(req,res) {
+class LoginController {
+    async getAccount(req, res) {
         try {
-            const { email, password } = req.body
-            const account = loginData.find(acc => acc.email === email)
-            if (account.password === password) {
-                res.status(200).json({account})
+            console.log(req.body);
+            const { email, password } = req.body;
+
+            if (!email || !password) {
+                return res.status(401).json({ error: "Login&password is undefined" });
             }
-                res.status(401).json({error: "Unauthorized"})
-            console.log(account)
+
+            const account = loginData.find(acc => acc.email === email);
+            if (!account) {
+                return res.status(404).json({ error: "NotFound" });
+            }
+
+            if (account.password === password) {
+                return res.status(200).json(account);
+            } else {
+                return res.status(401).json({ error: "Unauthorized" });
+            }
         } catch (e) {
-            res.status(500).json({error: "Server doesn`t work"})
+            console.error(e);
+            return res.status(500).json({ error: "Account not found" });
         }
     }
 }
 
-module.exports = new loginController()
+module.exports = new LoginController();
