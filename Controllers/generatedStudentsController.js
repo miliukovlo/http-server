@@ -12,12 +12,36 @@ class allStudents {
 
 	async getStudentsByPage(req, res) {
 		const { page, limit } = req.params;
+		const filters = req.query;
+		try {
+			const endIndex = page * limit;
+			const startIndex = (page - 1) * limit;
 
-		const endIndex = page * limit;
-		const startIndex = (page - 1) * limit;
+			if (Object.keys(filters).length !== 0) {
+				const filteredStudents = generatedStudents
+					.filter(student => {
+						return student.name
+							.toLowerCase()
+							.includes(filters["name"].toLowerCase().replace("-", " "));
+					})
+					.slice(startIndex, endIndex);
 
-		const students = generatedStudents.slice(startIndex, endIndex);
-		res.status(200).json(students);
+				res.status(200).json(filteredStudents);
+			} else {
+				const students = generatedStudents.slice(startIndex, endIndex);
+				res.status(200).json(students);
+			}
+
+			// const endIndex = page * limit;
+			// const startIndex = (page - 1) * limit;
+
+			// const students = generatedStudents.slice(startIndex, endIndex);
+			// res.status(200).json(students);
+		} catch (e) {
+			res
+				.status(500)
+				.json({ error: `Fail get students for users by server, ${e}` });
+		}
 	}
 
 	async getLimitStudents(req, res) {
